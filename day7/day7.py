@@ -1,7 +1,9 @@
 import random
+from hangman_words import word_list
+from hangman_art import logo
+from hangman_art import stages
  
 
-word_list = ["aardvark", "baboon", "camel"]
 lives = 6
 display = []
 
@@ -66,9 +68,6 @@ while True:
   print(f"{' '.join(display)}")
 
 #Check if user has got all letters.
-
-#TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
-#Delete this line: word_list = ["ardvark", "baboon", "camel"]
 
 #TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
 
