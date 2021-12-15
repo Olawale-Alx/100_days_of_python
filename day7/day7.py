@@ -2,7 +2,8 @@ import random
  
 
 word_list = ["aardvark", "baboon", "camel"]
-
+lives = 6
+display = []
 
 chosen_word = random.choice(word_list)
 # print(chosen_word)
@@ -10,12 +11,13 @@ chosen_word = random.choice(word_list)
 #TODO1: - Create an empty List called display.
 #For each letter in the chosen_word, add a "_" to 'display'.
 #So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
-display = []
 
 for _ in chosen_word:
   display += '_'
 
 print(display)
+
+#TODO1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
 
 while True:
 
@@ -48,18 +50,20 @@ while True:
     print('You win')
     break
 
-  #TODO1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
-
-#TODO-1: - Create a variable called 'lives' to keep track of the number of lives left. 
-#Set 'lives' to equal 6.
-
-#TODO-2: - If guess is not a letter in the chosen_word,
+  #TODO2: - If guess is not a letter in the chosen_word,
     #Then reduce 'lives' by 1. 
     #If lives goes down to 0 then the game should stop and it should print "You lose."
 
-#Join all the elements in the list and turn it into a String.
+  if guess not in chosen_word:
+    lives -= 1
 
-    # print(f"{' '.join(display)}")
+    if lives == 0:
+      print('You lost')
+
+
+  #Join all the elements in the list and turn it into a String.
+
+  print(f"{' '.join(display)}")
 
 #Check if user has got all letters.
 
