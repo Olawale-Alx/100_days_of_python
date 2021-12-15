@@ -10,6 +10,8 @@ display = []
 chosen_word = random.choice(word_list)
 # print(chosen_word)
 
+print(logo)
+
 #TODO1: - Create an empty List called display.
 #For each letter in the chosen_word, add a "_" to 'display'.
 #So if the chosen_word was "apple", display should be ["_", "_", "_", "_", "_"] with 5 "_" representing each letter to guess.
@@ -17,7 +19,8 @@ chosen_word = random.choice(word_list)
 for _ in chosen_word:
   display += '_'
 
-print(display)
+#Join all the elements in the list and turn it into a String.
+print(f"{' '.join(display)}")
 
 #TODO1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
 
@@ -52,6 +55,10 @@ while True:
     print('You win')
     break
 
+  #TODO4: - If the user has entered a letter they've already guessed, print the letter and let them know.
+  if guess in chosen_word:
+    print(f'You already guessed the word {guess} before.')
+
   #TODO2: - If guess is not a letter in the chosen_word,
     #Then reduce 'lives' by 1. 
     #If lives goes down to 0 then the game should stop and it should print "You lose."
@@ -59,23 +66,17 @@ while True:
   if guess not in chosen_word:
     lives -= 1
 
+    #TODO5: - If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.
+    print(f'Your guess: {guess} is not in the chosen word')
+
     if lives == 0:
       print('You lost')
+    print(stages[lives])
 
 
-  #Join all the elements in the list and turn it into a String.
+  
 
-  print(f"{' '.join(display)}")
 
-#Check if user has got all letters.
 
-#TODO-3: - Import the logo from hangman_art.py and print it at the start of the game.
 
-#TODO-4: - If the user has entered a letter they've already guessed, print the letter and let them know.
 
-#TODO-5: - If the letter is not in the chosen_word, print out the letter and let them know it's not in the word.
-
-#TODO-2: - Import the stages from hangman_art.py and make this error go away.
-
-#TODO-2: - Import the stages from hangman_art.py and make this error go away.
-    # print(stages[lives])
