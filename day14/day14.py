@@ -3,9 +3,16 @@ from game_data import data
 import random
 from replit import clear
 
+# The logo and vs import are to import the ASCII images from the art.py file
+# The data import imports data from game_data.py file for the game
+# The random import is used to randomize data file selections for the game
+# clear() is imported from replit to clear game data in order to avoid scrolling on game screen
+
 
 def format_data(account):
     """Take account input and Format the account data into a printable format"""
+
+    # This takes data from the game_data so it can be converted to human readable format
     account_name = account['name']
     account_description = account['description']
     account_country = account['country']
@@ -34,13 +41,14 @@ def check_answer(guess, a_follow_count, b_follow_count):
 print(logo)
 player_score = 0
 game_should_continue = True
-# Make the account at position B to be moved to position A if player guess is correct
+# Generate a random account from the game data
 second_account = random.choice(data)
 
 # Make the game repeatable
 while game_should_continue:
-    # Generate a random account from the game data
+    # Make the account at position B to be moved to position A if player guess is correct
     first_account = second_account
+    # Generate a random account from the game data
     second_account = random.choice(data)
     # print(first_account)
     # print(second_account)
@@ -50,6 +58,7 @@ while game_should_continue:
     account_a = format_data(first_account)
     account_b = format_data(second_account)
 
+    # This compares game data A and game data B and ask the user to guess who has more followers
     print(f'Compare A: {account_a}')
     print(f'\n{vs}\n')
     print(f'Compare B: {account_b}')
