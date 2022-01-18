@@ -75,7 +75,7 @@ def successful_transaction(received, drink_cost):
         return False
 
 
-# TODO: 5. Make a function that checks if there is enough ingredients to make the coffee
+# TODO: 6. Make a function that checks if there is enough ingredients to make the coffee
 def make_a_coffee(drink_name, order_ingredients):
     """This function calculates the ingredients needed to make a drink.
     Returns true if there is enough ingredients, false if any of the ingredients is
