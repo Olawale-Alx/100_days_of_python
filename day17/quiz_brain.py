@@ -21,8 +21,11 @@ class QuizBrain:
         if user_answer.lower() == correct_answer.lower():
             print('That\'s Right')
             self.score += 1
-            print(f'Current Score: {self.score}')
+            print(f'Current Score: {self.score}/{self.question_number}')
         else:
             print('That\'s Wrong')
-            print(f'Final Score: {self.score}')
-        print(f'The correct answer is {correct_answer.lower()}')
+            print(f'Final Score: {self.score}/{self.question_number}')
+        print(f'The correct answer is {correct_answer.lower()}\n')
+
+    def print_total(self):
+        print(f'Your final score is : {self.score}/{self.question_number}')
