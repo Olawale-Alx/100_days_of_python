@@ -1,10 +1,11 @@
 from turtle import Turtle, Screen
-
+# import turtle as t
+import random
 
 jim = Turtle()
-# jimmy_the_turtle.shape('turtle')
-jim.color('red', 'beige')
-jim.speed(1)
+# # jimmy_the_turtle.shape('turtle')
+# jim.color('red', 'beige')
+# jim.speed(1)
 
 # jimmy_the_turtle.forward(70)
 # jimmy_the_turtle.right(90)
@@ -52,8 +53,14 @@ jim.speed(1)
 # for _ in range(10):
 #     jim.forward(60)
 #     jim.right(36)
-color = ['red', 'green', 'blue', 'black', 'orange', 'yellow', 'brown', 'beige', 'pink', ]
-
+screen = Screen()
+# screen.bgcolor('green yellow')
+screen.title('Turtle')
+# t.colormode(255)
+color = ['red', 'green', 'blue', 'black', 'orange', 'yellow', 'brown', 'beige', 'pink',
+         'Medium Blue', 'silver', 'steel blue', 'dark khaki', 'magenta', 'crimson', 'white',
+         'sandy brown', 'moccasin', 'green', 'green yellow', 'lawn green', ]
+# positioning = [0, 90, 180, 270]
 
 # def draw_shape(num_sides):
 #     for _ in range(num_sides):
@@ -62,13 +69,35 @@ color = ['red', 'green', 'blue', 'black', 'orange', 'yellow', 'brown', 'beige', 
 #         jim.right(angle)
 #
 #
-# for shape_sides in range(3, 11):
-#     jim.color(color[shape_sides - 3])
-#     draw_shape(shape_sides)
+
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color_list = (r, g, b)
+    return color_list
+
+
+# jim.speed(9)
+# jim.resizemode('user')
+jim.hideturtle()
+# jim.pensize(15)
+#
+# for _ in range(300):
+#     jim.color(random_color())
+#     jim.forward(30)
+#     jim.setheading(random.choice(positioning))
+screen.bgcolor('black')
+jim.pensize(9)
+jim.speed(9)
+for _ in range(36):
+    jim.color(random.choice(color))
+    jim.circle(160)
+    jim.left(10)
 
 
 print(jim.position())
 
-screen = Screen()
-screen.title('Turtle')
+
 screen.exitonclick()
