@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 # import turtle as t
 import random
+import colorgram
 
 jim = Turtle()
 # # jimmy_the_turtle.shape('turtle')
@@ -89,13 +90,23 @@ jim.hideturtle()
 #     jim.forward(30)
 #     jim.setheading(random.choice(positioning))
 screen.bgcolor('black')
-jim.pensize(9)
-jim.speed(9)
-for _ in range(36):
-    jim.color(random.choice(color))
-    jim.circle(160)
-    jim.left(10)
+# jim.pensize(9)
+# jim.speed(9)
+# for _ in range(73):
+#     jim.color(random.choice(color))
+#     jim.circle(160)
+#     jim.left(5)
 
+
+colors = colorgram.extract('hirst.jpg', 200)
+rgb_colors = []
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    rgb = [r, g, b]
+    rgb_colors.append(rgb)
+print(rgb_colors)
 
 print(jim.position())
 
