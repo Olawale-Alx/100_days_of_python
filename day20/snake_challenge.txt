@@ -1,7 +1,7 @@
 Creating the snake game
 
-1. Create the snake body
-2. Move the snake body and change direction
+1. Create the snake body. Done
+2. Move the snake body and change direction. Done
 3. Controlling the snake using keyboard controls
 4. Detect collision with food and drop another food at random location on the screen
 5. Create a scoreboard and keep track of player scores
