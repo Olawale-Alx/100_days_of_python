@@ -17,6 +17,7 @@ screen.onkey(snakey.left, 'Left')
 screen.onkey(snakey.right, 'Right')
 
 game_is_on = True
+
 while game_is_on:
     screen.update()
     time.sleep(0.2)

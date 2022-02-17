@@ -1,34 +1,25 @@
-from turtle import Turtle, Screen
+class Animal:
+    def __init__(self):
+        self.num_eyes = 2
 
-screen = Screen()
-screen.listen()
-turtles = Turtle()
-turtles.shape('square')
-
-
-def up():
-    turtles.setheading(90)
-    turtles.forward(50)
+    def breathe(self):
+        print('Breathe in, Breathe out')
 
 
-def down():
-    turtles.setheading(270)
-    turtles.forward(50)
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def breathe(self):
+        super().breathe()
+        print('and calm down')
+
+    def legs(self, name):
+        print(f'{name} has four legs')
 
 
-def left():
-    turtles.setheading(180)
-    turtles.forward(50)
-
-
-def right():
-    turtles.setheading(0)
-    turtles.forward(50)
-
-
-screen.onkey(right, 'Right')
-screen.onkey(left, 'Left')
-screen.onkey(up, 'Up')
-screen.onkey(down, 'Down')
-
-screen.exitonclick()
+dog = Dog()
+eye = dog.num_eyes
+print(eye)
+dog.breathe()
+dog.legs('Brian')
