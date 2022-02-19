@@ -12,6 +12,7 @@ class Snakey:
     def __init__(self):
         self.squares = []
         self.create_snake()
+        self.head = self.squares[0]
 
     def create_snake(self):
         for square in POSITION:
