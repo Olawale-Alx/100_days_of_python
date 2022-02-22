@@ -16,11 +16,19 @@ class Snakey:
 
     def create_snake(self):
         for square in POSITION:
-            new_square = Turtle(shape='square')
-            new_square.penup()
-            new_square.color('white')
-            new_square.goto(square)
-            self.squares.append(new_square)
+            self.add_segment(square)
+
+    def add_segment(self, square):
+        # Creates a new segment
+        new_square = Turtle(shape='square')
+        new_square.penup()
+        new_square.color('white')
+        new_square.goto(square)
+        self.squares.append(new_square)
+
+    def extend(self):
+        # Adds a new segment to snakey
+        self.add_segment(self.squares[-1].position())
 
     def move(self):
         for square_num in range(len(self.squares) - 1, 0, -1):

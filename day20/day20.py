@@ -12,7 +12,7 @@ screen.tracer(0)
 
 snakey = Snakey()
 food = Food()
-scores = Scoreboard()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(snakey.up, 'Up')
@@ -27,9 +27,24 @@ while game_is_on:
     time.sleep(0.2)
     snakey.move()
 
-    # Detect collision with food and change food location
+    # Detect collision with food, add to score, increase snakey and change food location
     if snakey.head.distance(food) < 10:
         food.refresh()
-        scores.increase_score()
+        snakey.extend()
+        scoreboard.increase_score()
+
+    # Detect collision with game wall
+    if snakey.head.xcor() > 295 or snakey.head.xcor() < -305 or snakey.head.ycor() > 300 or snakey.head.ycor() < -290:
+        game_is_on = False
+        scoreboard.game_over()
+
+    # Detect collision with tail
+    for square in snakey.squares:
+        if square == snakey.head:
+            pass
+
+        elif snakey.head.distance(square) < 8:
+            game_is_on = False
+            scoreboard.game_over()
 
 screen.exitonclick()
