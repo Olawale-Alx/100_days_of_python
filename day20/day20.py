@@ -39,11 +39,8 @@ while game_is_on:
         scoreboard.game_over()
 
     # Detect collision with tail
-    for square in snakey.squares:
-        if square == snakey.head:
-            pass
-
-        elif snakey.head.distance(square) < 8:
+    for square in snakey.squares[1:]:
+        if snakey.head.distance(square) < 8:
             game_is_on = False
             scoreboard.game_over()
 
