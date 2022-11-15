@@ -24,8 +24,8 @@ class QuizBrain:
             print(f'Current Score: {self.score}/{self.question_number}')
         else:
             print('That\'s Wrong')
-            print(f'Final Score: {self.score}/{self.question_number}')
-        print(f'The correct answer is {correct_answer.lower()}\n')
+            print(f'Current Score: {self.score}/{self.question_number}')
+            print(f'The correct answer is {correct_answer.lower()}\n')
 
     def print_total(self):
         print(f'Your final score is : {self.score}/{self.question_number}')

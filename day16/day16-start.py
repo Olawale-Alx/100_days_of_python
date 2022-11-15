@@ -14,10 +14,18 @@ from prettytable import PrettyTable
 # show_screen.exitonclick()
 
 table = PrettyTable()
-table.add_column('Pokemon Name',
-                 ['Pikachu', 'Squirtle', 'Charmander'])
-table.add_column('Type',
-                 ['Electric', 'Water', 'Fire'])
-table.align = 'r'
+# table.border = False
+table.header_style = 'upper'
+table.align = 'l'
+# table.add_column('Pokemon Name',
+#                  ['Pikachu', 'Squirtle', 'Charmander'])
+# table.add_column('Type',
+#                  ['Electric', 'Water', 'Fire'])
+table.add_column('First Name',
+                 ['Olawale', 'Anita', 'Sayo', 'Peace', 'Oyinlola'])
+table.add_column('Last Name',
+                 ['Olaleye', 'Bartholomew', 'Osuntokun', 'Umoren', 'Akinseinde'])
+
 
 print(table)
+print(table.get_string(start=2, end=4))

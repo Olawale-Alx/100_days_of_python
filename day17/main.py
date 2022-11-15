@@ -3,8 +3,7 @@ from question_model import Question
 from quiz_brain import QuizBrain
 
 question_bank = []
-# This converts the questions and answers in the array to texts that
-# can be used in OOP
+# This converts the questions and answers in the array to texts that can be used in OOP
 for question in question_data:
     question_text = question['text']
     question_answer = question['answer']

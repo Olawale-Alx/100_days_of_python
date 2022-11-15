@@ -4,6 +4,7 @@ from money_machine import MoneyMachine
 
 
 menu = Menu()
+# menu_item = MenuItem()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
 # menu_item = MenuItem()

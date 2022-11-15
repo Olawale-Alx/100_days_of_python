@@ -7,7 +7,7 @@ class User:
 
     def users(self):
         print(f'Welcome to Hades, User {self.username} with number {self.id}'
-              f' with a following of {self.followers} people')
+              f' with a following of {self.followers} people and you are following {self.following} people.')
 
     def follow(self, user):
         user.followers += 1
@@ -16,10 +16,18 @@ class User:
 
 user1 = User(2011, 'Frank')
 user2 = User(1211, 'Larry')
+user3 = User(1909, 'Kells')
+user4 = User(1001, 'Hitman')
 
 user1.follow(user2)
-print(user1.followers)
-print(user1.following)
+user3.follow(user2)
+user4.follow(user2)
+
+user1.users()
+user2.users()
+print(f'Username: {user2.username}, ID: {user2.id}, Followers: {user2.followers}, Following: {user2.following}')
+print(f'Username: {user1.username}, ID: {user1.id}, Followers: {user1.followers}, Following: {user1.following}')
+
 # user_1 = User(5087, 'Olawale')
 # user_1.followers = 500
 #
