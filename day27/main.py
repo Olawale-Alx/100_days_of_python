@@ -36,7 +36,7 @@ def converter():
     try:
         num = float(entry.get())
         mile_to_km = num * 1.609344
-        label_three.config(text=mile_to_km)
+        label_three.config(text=round(mile_to_km, 2))
     except ValueError:
         label_three.config(text='Value must be int')
 
