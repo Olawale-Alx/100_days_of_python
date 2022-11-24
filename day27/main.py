@@ -34,7 +34,7 @@ label_four.grid(column=2, row=1)
 # Sixth Widget, Button
 def converter():
     try:
-        num = int(entry.get())
+        num = float(entry.get())
         mile_to_km = num * 1.609344
         label_three.config(text=mile_to_km)
     except ValueError:
