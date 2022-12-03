@@ -1,0 +1,2 @@
+lt = []
+print(type(lt))
