@@ -3,7 +3,21 @@ from tkinter import *
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def add_on_click():
+    acc_name = account_entry.get()
+    user_name = email_entry.get()
+    secret = password_entry.get()
+
+    account_info = f'Account Name: {acc_name}, User Name: {user_name}, Secret: {secret}\n'
+
+    with open('/home/vagrant/Desktop/password_generator.txt', mode='a') as pass_gen:
+        pass_gen.write(account_info)
+
+    account_entry.delete(0, END)
+    password_entry.delete(0, END)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 YELLOW = "#f7f5dd"
@@ -53,7 +67,8 @@ generate_button = Button(text='Generate Password', width=15, bd=1, highlightthic
 generate_button.grid(column=2, row=3)
 
 # Add button
-add_button = Button(text='Add', width=39, bd=1, highlightthickness=0, cursor='hand2', bg='white')
+add_button = Button(text='Add', width=39, bd=1, highlightthickness=0, cursor='hand2', bg='white',
+                    command=add_on_click)
 add_button.grid(pady=15, column=1, row=4, columnspan=2)
 
 window.mainloop()
