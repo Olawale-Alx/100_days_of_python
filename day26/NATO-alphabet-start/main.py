@@ -30,6 +30,19 @@ dict_file = pandas.DataFrame(read_file)
 words = {row.letter: row.code for (index, row) in dict_file.iterrows()}
 
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-name = input('Enter user name:\n').upper()
-nato_name = [words[letter] for letter in name]
-print(nato_name)
+print(words)
+
+
+def generate_nato_name():
+    name = input('Enter user name:\n').upper()
+
+    try:
+        nato_name = [words[letter] for letter in name]
+    except KeyError:
+        print('Sorry, only letters in the alphabet is allowed')
+        generate_nato_name()
+    else:
+        print(nato_name)
+
+
+generate_nato_name()
