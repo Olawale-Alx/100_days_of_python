@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import pyperclip
+import json
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -33,15 +34,31 @@ def add_on_click():
 
     if acc_name == '' or len(secret) < 8 or user_name == '':
         messagebox.showinfo(title=acc_name, message='Username cannot be empty and password cannot be less than '
-                            'eight')
+                                                    'eight')
     else:
         proceed = messagebox.askokcancel(title=acc_name, message=f'Login Details:\nUser Name: {user_name}\n'
                                                                  f'Password: {secret}\n Okay to proceed?')
         if proceed:
-            account_info = f'Account Name: {acc_name}, User Name: {user_name}, Secret: {secret}\n'
+            json_data = {acc_name: {
+                'Username': user_name,
+                'Password': secret
+            }}
 
-            with open('/home/vagrant/Desktop/password_generator.txt', mode='a') as pass_gen:
-                pass_gen.write(account_info)
+            try:
+                # Here, we read the json data and update with the new data
+                with open('/home/vagrant/Desktop/password_data_list.json', mode='r') as pass_gen:
+                    # Load the data
+                    data = json.load(pass_gen)
+                    # Update the data
+                    data.update(json_data)
+
+                # Here, we write the updated data to the existing file
+                with open('/home/vagrant/Desktop/password_data_list.json', mode='w') as pass_gen:
+                    json.dump(data, pass_gen, indent=4)
+
+            except FileNotFoundError:
+                with open('/home/vagrant/Desktop/password_data_list.json', mode='w') as pass_gen:
+                    json.dump(json_data, pass_gen, indent=4)
 
             account_entry.delete(0, END)
             password_entry.delete(0, END)
@@ -55,7 +72,7 @@ window.title('Password Generator')
 window.minsize(height=450, width=300)
 window_photo = PhotoImage(file='./logo.png')
 window.iconphoto(False, window_photo)
-window.config(padx=40, pady=20, bg=YELLOW)
+window.config(padx=60, pady=20, bg=YELLOW)
 
 # Layout is 3col and 5row
 # Canvas
@@ -69,9 +86,14 @@ account_name = Label(text='Account Name:', justify='left', bg=YELLOW)
 account_name.grid(pady=4, column=0, row=1)
 
 # Entry for account name
-account_entry = Entry(width=41, bd=2, highlightthickness=0)
+account_entry = Entry(width=22, bd=2, highlightthickness=0)
 account_entry.focus()
-account_entry.grid(column=1, row=1, columnspan=2)
+account_entry.grid(column=1, row=1, columnspan=1)
+
+# Button for account search
+account_search = Button(text='Search', width=15, bd=1, highlightthickness=0, cursor='hand2',
+                        bg='white')
+account_search.grid(column=2, row=1)
 
 # Label for email/username
 email_user = Label(text='Email/Username:', justify='left', bg=YELLOW)
