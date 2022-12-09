@@ -60,8 +60,28 @@ def add_on_click():
                 with open('/home/vagrant/Desktop/password_data_list.json', mode='w') as pass_gen:
                     json.dump(json_data, pass_gen, indent=4)
 
-            account_entry.delete(0, END)
-            password_entry.delete(0, END)
+            finally:
+                account_entry.delete(0, END)
+                password_entry.delete(0, END)
+
+
+# ---------------------------- SEARCH BUTTON FUNCTIONALITY ------------ #
+def find_password():
+    acc_name = account_entry.get()
+
+    try:
+        with open('/home/vagrant/Desktop/password_data_list.json', mode='r') as pass_gen:
+            data = json.load(pass_gen)
+
+            if acc_name in data:
+                messagebox.showinfo(title=f'{acc_name}', message=f'Username: {data[acc_name]["Username"]}\n'
+                                                                 f'Secret: {data[acc_name]["Password"]}')
+
+            else:
+                messagebox.showinfo(title=f'{acc_name}', message=f'No details exist for {acc_name}!')
+
+    except FileNotFoundError:
+        messagebox.showinfo(title='File', message='No Data File Found!!!')
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -92,7 +112,7 @@ account_entry.grid(column=1, row=1, columnspan=1)
 
 # Button for account search
 account_search = Button(text='Search', width=15, bd=1, highlightthickness=0, cursor='hand2',
-                        bg='white')
+                        bg='white', command=find_password)
 account_search.grid(column=2, row=1)
 
 # Label for email/username
