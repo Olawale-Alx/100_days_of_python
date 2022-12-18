@@ -30,7 +30,7 @@ if today in birthdays_dict:
     birthday_person = birthdays_dict[today]
     with open(file_path, mode='r') as letters:
         letter = letters.read()
-        letter.replace('[NAME]', birthday_person['name'])
+        letter = letter.replace('[NAME]', birthday_person['name'])
 
     # 4. Send the letter generated in step 3 to that person's email address.
     # HINT: The message should have the Subject: Happy Birthday then after \n\n The Message Body.
