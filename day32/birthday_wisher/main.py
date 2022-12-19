@@ -41,4 +41,3 @@ if today in birthdays_dict:
 
 else:
     print(False)
-
