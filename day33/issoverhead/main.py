@@ -2,12 +2,13 @@ import requests
 from datetime import datetime
 import smtplib
 import time
+import os
 
 MY_LAT = 6.740147  # Your latitude
 MY_LONG = 3.422076   # Your longitude
-my_email = 'iolaleye62@yahoo.com'
+my_email = os.environ.get('MY_EMAIL')
 recipient = 'olaleyeolawale2020@outlook.com'
-secret = 'vbovtfuubybpctnr'
+secret = os.environ.get('SECRET')
 
 
 def check_position():

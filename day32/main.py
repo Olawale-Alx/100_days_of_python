@@ -1,12 +1,13 @@
 import smtplib
 import datetime as dt
 import random
+import os
 
 
-MY_EMAIL = 'iolaleye62@yahoo.com'
+MY_EMAIL = os.environ.get('MY_EMAIL')
 recipient = 'iolaleye62@gmail.com'
 subject = 'Today Motivation'
-secret = 'vbovtfuubybpctnr'
+secret = os.environ.get('SECRET')
 
 now = dt.datetime.now()
 day = now.weekday()
